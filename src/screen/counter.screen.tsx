@@ -13,11 +13,33 @@ const styles = StyleSheet.create({
     },
     btnInc: {
         backgroundColor: 'green',
-        borderRadius: 100
+        borderRadius: 100,
+        width: 60,
+        height: 60,
+        justifyContent: 'center'
     },
     btnDec: {
         backgroundColor: 'red',
-        borderRadius: 100
+        borderRadius: 100,
+        width: 60,
+        height: 60,
+        justifyContent: 'center'
+    },
+    fabText: {
+        color: 'white',
+        fontSize: 25,
+        fontWeight: 'bold',
+        alignSelf: 'center'
+    },
+    fabToLeft: {
+        position: 'absolute',
+        bottom: 20,
+        left: 20
+    },
+    fabToRight: {
+        position: 'absolute',
+        bottom: 20,
+        right: 20
     }
 });
 
@@ -36,25 +58,22 @@ export const CounterScreenComponent = () => {
 
 
             <TouchableOpacity
-
+                style={styles.fabToLeft}
                 onPress={() => setCounter(counter - 1)}
             >
                 <View style={styles.btnDec} >
-                    <Text>-1</Text>
+                    <Text style={styles.fabText} >-1</Text>
                 </View>
 
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => setCounter(counter + 1)} >
+
+            <TouchableOpacity style={styles.fabToRight} onPress={() => setCounter(counter + 1)} >
                 <View style={styles.btnInc} >
-                    <Text>+1</Text>
+                    <Text style={styles.fabText} >+1</Text>
                 </View>
 
             </TouchableOpacity>
-
-
-
-
 
 
 
