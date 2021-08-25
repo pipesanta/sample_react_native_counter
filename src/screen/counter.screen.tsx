@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Button, Text, TouchableOpacity, View, StyleSheet } from "react-native";
-
+import { Text, View, StyleSheet } from "react-native";
+import { FabButton } from '../components/FabButton';
 
 const styles = StyleSheet.create({
     container: {
@@ -10,36 +10,6 @@ const styles = StyleSheet.create({
     counterText: {
         textAlign: 'center',
         fontSize: 40
-    },
-    btnInc: {
-        backgroundColor: 'green',
-        borderRadius: 100,
-        width: 60,
-        height: 60,
-        justifyContent: 'center'
-    },
-    btnDec: {
-        backgroundColor: 'red',
-        borderRadius: 100,
-        width: 60,
-        height: 60,
-        justifyContent: 'center'
-    },
-    fabText: {
-        color: 'white',
-        fontSize: 25,
-        fontWeight: 'bold',
-        alignSelf: 'center'
-    },
-    fabToLeft: {
-        position: 'absolute',
-        bottom: 20,
-        left: 20
-    },
-    fabToRight: {
-        position: 'absolute',
-        bottom: 20,
-        right: 20
     }
 });
 
@@ -55,27 +25,17 @@ export const CounterScreenComponent = () => {
                 Contador: {counter}
             </Text>
 
+            <FabButton
+                title="-1"
+                position="left"
+                onClick={() => setCounter(counter - 1)}
+            />
 
-
-            <TouchableOpacity
-                style={styles.fabToLeft}
-                onPress={() => setCounter(counter - 1)}
-            >
-                <View style={styles.btnDec} >
-                    <Text style={styles.fabText} >-1</Text>
-                </View>
-
-            </TouchableOpacity>
-
-
-            <TouchableOpacity style={styles.fabToRight} onPress={() => setCounter(counter + 1)} >
-                <View style={styles.btnInc} >
-                    <Text style={styles.fabText} >+1</Text>
-                </View>
-
-            </TouchableOpacity>
-
-
+            <FabButton
+                title="+1"
+                position="right"
+                onClick={() => setCounter(counter + 1)}
+            />
 
         </View>
     );
